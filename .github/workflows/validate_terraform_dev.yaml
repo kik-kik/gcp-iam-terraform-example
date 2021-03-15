@@ -1,0 +1,31 @@
+name: validate-terraform
+on
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+env:
+  ENVIRONMENT: dev
+
+jobs:
+  validate-terraform:
+    name: Validate Terraform
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.8
+
+      - name: Terraform init
+        run: terraform -chdir=terraform init 
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform -chdir=terraform validate -no-color
