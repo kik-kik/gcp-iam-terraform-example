@@ -36,7 +36,6 @@ This project was only intended as a personal project that was put together in sh
     │       └── iam
     │           ├── main.tf
     │           └── variables.tf
-    ├── prod.tfvar
     ├── providers
     │   └── provider.tf
     └── variables.tf
