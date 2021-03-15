@@ -5,11 +5,10 @@
 ## Usage
 This guide assumes you have terraform 0.14 installed on your machine. If not, please follow [the official guide](https://learn.hashicorp.com/tutorials/terraform/install-cli to install Terraform). For running multiple versions of Terraform you can use something like [tfenv](https://github.com/tfutils/tfenv).
 
-1. Inside `dev.tfvar` add information related to your GCP project (project_id, region, )
-2. Make sure you have configured your GCP credentials by setting `GOOGLE_APPLICATION_CREDENTIALS` environment variable to point to your credentials file.
-3. Navigate to `terraform/` and run `terraform init`
-4. Run `terraform plan -var-file="dev.tfvar" -out=/tmp/dev.tfplan`
-5. If you're happy with the plan and want to apply the changes run `terraform apply 
+1. Make sure you have configured your GCP credentials by setting `GOOGLE_APPLICATION_CREDENTIALS` environment variable to point to your credentials file.
+2. Navigate to `terraform/` and run `terraform init`
+3. Run `terraform plan -var 'gcp_project=my-gcp-project' -var 'gcp_region=gcp-region' -var 'env=dev' -out=/tmp/dev.tfplan`. Alternatively, you can create `dev.tfvars` file inside `terraform/` and use the following command instead `terraform plan -var-file="dev.tfvars" -out=/tmp/dev.tfplan`.
+4. If you're happy with the plan and want to apply the changes run `terraform apply /tmp/dev.tfplan`
 
 ### Disclaimer
 This project was only intended as a personal project that was put together in short amount of time and therefore is far from being a production ready setup, so please treat it as such.
@@ -31,7 +30,6 @@ This project was only intended as a personal project that was put together in sh
     │               ├── bigquery_role.yaml
     │               ├── registry_role.yaml
     │               └── role_policy.yaml
-    ├── dev.tfvar
     ├── main.tf
     ├── modules
     │   └── gcp
@@ -55,10 +53,8 @@ A list of required input arguments for this terraform codebase.
 ### configs/
 High level folder containing yaml based configuration for easier usage.
 
-- gcp/iam/dev/ - contains dev environment specific configuration 
-- gcp/iam/roles/ - folder containing role definitions (shared across environments)
-- dev.tfvar - input variables that for dev environment that can be passed to plan/apply using `-var-file` argument.
-
+- `gcp/iam/dev/` - contains dev environment specific configuration
+- `gcp/iam/roles/` - folder containing role definitions (shared across environments)
 
 ### modules/
 
