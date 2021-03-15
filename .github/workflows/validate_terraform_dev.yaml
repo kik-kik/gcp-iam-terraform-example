@@ -1,5 +1,5 @@
 name: validate-terraform
-on
+on:
   push:
     branches:
       - '**'
@@ -17,7 +17,13 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_DEV }}
+          export_default_credentials: true
 
       - uses: hashicorp/setup-terraform@v1
         with:
