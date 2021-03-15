@@ -1,0 +1,37 @@
+name: validate-terraform
+on:
+  push:
+    branches:
+      - '**'
+      - '!main'
+
+env:
+  ENVIRONMENT: dev
+
+jobs:
+  validate-terraform:
+    name: Validate Terraform
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_DEV }}
+          export_default_credentials: true
+
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.8
+
+      - name: Terraform init
+        run: terraform -chdir=terraform init 
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform -chdir=terraform validate -no-color

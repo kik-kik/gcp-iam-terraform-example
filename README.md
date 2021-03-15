@@ -1,3 +1,5 @@
+[![.github/workflows/validate_terraform_dev.yaml](https://github.com/kik-kik/gcp-iam-terraform-example/actions/workflows/validate_terraform_dev.yaml/badge.svg)](https://github.com/kik-kik/gcp-iam-terraform-example/actions/workflows/validate_terraform_dev.yaml)
+
 # Experimental project to use Terraform for managing access in GCP
 
 ## Usage
