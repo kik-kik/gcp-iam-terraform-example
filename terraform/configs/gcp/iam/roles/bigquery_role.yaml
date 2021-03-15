@@ -1,0 +1,41 @@
+# Role definition at GCP project level
+custom_bigquery_role_list:
+  - role_id: bigquery_user
+    title: bigquery_user
+    description: "Data user that can read datasets/tables, run queries"
+    permissions: [
+      "bigquery.datasets.get",
+      "bigquery.datasets.getIamPolicy",
+      "bigquery.models.export",
+      "bigquery.models.getData",
+      "bigquery.models.getMetadata",
+      "bigquery.models.list",
+      "bigquery.routines.get",
+      "bigquery.routines.list",
+      "bigquery.tables.export",
+      "bigquery.tables.get",
+      "bigquery.tables.getData",
+      "bigquery.tables.getIamPolicy",
+      "bigquery.tables.list",
+      "resourcemanager.projects.get"
+    ]
+  - role_id: bigquery_admin
+    title: bigquery_admin
+    description: "Gives BigQuery Admin privilages"
+    permissions: [
+      "bigquery.datasets.get",
+      "bigquery.datasets.getIamPolicy",
+      "bigquery.models.export",
+      "bigquery.models.getData",
+      "bigquery.models.getMetadata",
+      "bigquery.models.list",
+      "bigquery.routines.get",
+      "bigquery.routines.list",
+      "bigquery.tables.export",
+      "bigquery.tables.getData",
+      "bigquery.tables.getIamPolicy",
+      "bigquery.tables.list",
+      "resourcemanager.projects.get"
+    ]
+
+

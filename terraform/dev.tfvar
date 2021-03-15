@@ -1,0 +1,3 @@
+gcp_project = "my-gcp-project"
+gcp_region = "eu-west1"
+env = "dev"

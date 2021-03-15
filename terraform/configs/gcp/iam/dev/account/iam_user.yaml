@@ -1,0 +1,6 @@
+# Role definition at GCP project level
+iam_user_list:
+  - account_id: "user@email.com"
+
+iam_admin_list:
+  - account_id: "admin@email.com"

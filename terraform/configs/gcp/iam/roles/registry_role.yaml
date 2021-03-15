@@ -1,0 +1,24 @@
+# Role definition at GCP project level
+custom_registry_role_list:
+  - role_id: container_registry_reader
+    title: container_registry_reader
+    description: "Allows to pull images from GCP Container Registry"
+    permissions: [
+      "storage.objects.get",
+      "storage.objects.list"
+    ]
+  - role_id: container_registry_writer
+    title: container_registry_writer
+    description: "Allows to push images to GCP Container Registry"
+    permissions: [
+      "storage.buckets.get",
+      "storage.buckets.list",
+      "storage.buckets.create",
+      "storage.buckets.update",
+      "storage.buckets.delete",
+      "storage.objects.get",
+      "storage.objects.list",
+      "storage.objects.create",
+      "storage.objects.update",
+      "storage.objects.delete"
+    ]

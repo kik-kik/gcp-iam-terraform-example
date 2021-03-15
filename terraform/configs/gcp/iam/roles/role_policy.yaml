@@ -1,0 +1,19 @@
+# Bind role and user or IAM group at GCP project level
+role_policy_list:
+  - role_id: bigquery_user
+    members: [
+      "user@email.com"
+    ]
+  - role_id: bigquery_admin
+    members: [
+      "user@email.com"
+    ]
+  - role_id: container_registry_reader
+    members: [
+      "serviceAccount:my-service-account@my-gcp-project.iam.gserviceaccount.com"
+    ]
+  - role_id: container_registry_writer
+    members: [
+      "serviceAccount:my-service-account@my-gcp-project.iam.gserviceaccount.com"
+    ]
+

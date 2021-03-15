@@ -1,0 +1,14 @@
+# Bind role and user or IAM group at dataset level
+dataset_policy_list:
+  - dataset_id: my_dataset
+    role_id: bigquery_user
+    members: [
+      "user@mail.com"
+    ]
+  - dataset_id: my_other_dataset
+    role_id: bigquery_user
+    members: [
+      "user@mail.com",
+      "another-user@mail.com"
+    ]
+
